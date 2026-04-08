@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halan | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-zinc-950 text-zinc-100">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-zinc-950 border-b border-zinc-800 z-50">
+      <div
+        class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center"
+      >
+        <h1 class="text-3xl font-bold">Halan.</h1>
+        <div class="space-x-8">
+          <a href="#projects" class="hover:text-emerald-400 transition"
+            >Projects</a
+          >
+          <a href="#about" class="hover:text-emerald-400 transition">About</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-screen pt-24 flex items-center">
+      <div
+        class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center"
+      >
+        <div>
+          <h1 class="text-6xl font-bold leading-tight">Hi, I'm Halan</h1>
+          <p class="text-3xl text-zinc-400 mt-4">Full Stack Developer</p>
+          <p class="mt-8 max-w-md text-zinc-300">
+            I create modern and responsive web applications with clean design
+            and smooth user experience.
+          </p>
+          <a
+            href="#projects"
+            class="mt-10 inline-block px-8 py-4 bg-emerald-500 hover:bg-emerald-600 rounded-2xl font-medium transition"
+          >
+            View My Projects
+          </a>
+        </div>
+        <div>
+          <img
+            src="https://picsum.photos/id/1015/600/700"
+            alt="Halan"
+            class="rounded-3xl w-full shadow-2xl"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-zinc-900">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12">Featured Projects</h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          {% for project in project %}
+          <a
+            href="{% url 'project_page' project.id %}"
+            class="bg-zinc-800 rounded-3xl overflow-hidden cursor-pointer hover:scale-105 transition-all"
+          >
+            <img
+              src="https://picsum.photos/id/201/600/400"
+              class="w-full h-56 object-cover"
+            />
+            <div class="p-6">
+              <p>THIS IS MY PROJECT NO {{ project.id }}</p>
+              <p class="text-emerald-400 text-sm">{{project.details}}</p>
+              <h3 class="font-semibold text-xl mt-2">{{project.name|upper}}</h3>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold mb-6">About Me</h2>
+        <p class="text-zinc-400 text-lg">
+          I'm a passionate full-stack developer based in Kathmandu. I love
+          building digital products that are both beautiful and functional.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>
