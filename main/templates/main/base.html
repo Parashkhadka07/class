@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halan | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-zinc-950 text-zinc-100 pt-24">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-zinc-950 border-b border-zinc-800 z-50">
+      <div
+        class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center"
+      >
+        <h1 class="text-3xl font-bold">Halan.</h1>
+        <div class="space-x-8">
+          <a href="#projects" class="hover:text-emerald-400 transition"
+            >Projects</a
+          >
+          <a href="#about" class="hover:text-emerald-400 transition">About</a>
+        </div>
+      </div>
+    </nav>
+
+    {% block content %}
+    <h1 style="color: rgb(235, 6, 83); background: white">
+      this is from the base
+    </h1>
+    {% endblock %}
+
+    <!-- About -->
+    <section id="about" class="py-24">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold mb-6">About Me</h2>
+        <p class="text-zinc-400 text-lg">
+          I'm a passionate full-stack developer based in Kathmandu. I love
+          building digital products that are both beautiful and functional.
+        </p>
+      {% for social in social  %}
+        <a
+          href="{{social.link}}"
+          class="text-4xl font-bold mb-6"
+          target="_blank"
+          >{{social.name}}</a
+        >
+        {%if forloop.last%}
+        
+        <p class="text-zinc-400 text-lg">this is the last</p>
+         {%endif%}
+         <br />
+        {%endfor%}
+      </div>
+    </section>
+  </body>
+</html>

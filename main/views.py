@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from main.models import Project,Skills
+from main.models import Project,Skills,Social
 # Create your views here.
 
 
@@ -8,7 +8,9 @@ projects=Project.objects.all()
 
 
 def home(request):
-    context={"project":projects}
+    socials=Social.objects.all()
+    context={"project":projects,
+             "social":socials}
     
     return render(request,"main/index.html",context)
 

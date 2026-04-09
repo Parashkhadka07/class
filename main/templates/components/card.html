@@ -1,0 +1,14 @@
+<a
+  href="{% url 'project_page' project.id %}"
+  class="bg-zinc-800 rounded-3xl overflow-hidden cursor-pointer hover:scale-105 transition-all"
+>
+  <img
+    src="https://picsum.photos/id/201/600/400"
+    class="w-full h-56 object-cover"
+  />
+  <div class="p-6">
+    <p>THIS IS MY PROJECT NO {{ project.id }}</p>
+    <p class="text-emerald-400 text-sm">{{project.details}}</p>
+    <h3 class="font-semibold text-xl mt-2">{{project.name|upper}}</h3>
+  </div>
+</a>

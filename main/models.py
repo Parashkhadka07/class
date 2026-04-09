@@ -9,3 +9,7 @@ class Project(models.Model):
 class Skills(models.Model):
     name=models.CharField(max_length=30)
     experience=models.DateField()
+
+class Social(models.Model):
+    name=models.CharField(max_length=30)
+    link=models.CharField(max_length=800)
